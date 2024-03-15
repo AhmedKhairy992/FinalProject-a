@@ -1,0 +1,28 @@
+<div  class="container-fluid p-5 h-100 d-flex justify-content-center align-items-center ">
+  <div *ngIf="SingleProduct.price>0 else loading" class="row p-5">
+    <div class="col-md-3 ">
+      <img [src]="SingleProduct.imageCover" class="w-100 img-fluid" alt="">
+    </div>
+    <div class="col-md-9">
+      <p>{{SingleProduct.title}}</p>
+      <p>{{SingleProduct.description}}</p>
+      <span>{{SingleProduct.ratingsAverage}}<i class="fa-solid star fa-star"></i></span>
+      <p>{{SingleProduct.price}} LE</p>
+      <button  (click)="showSuccess()" class="btn bg-main">add to cart</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="container p-5 mt-5 d-flex justify-content-center align-items-center">
+    <h1>loading...</h1>
+    <span class="loader"></span>
+  </div>
+  </ng-template>
+
+  <ng-template #loading2>
+    <div class="container p-5 h-100 d-flex justify-content-center align-items-center">
+      <h1>loading...</h1>
+      <span class="loader"></span>
+    </div>
+    </ng-template>

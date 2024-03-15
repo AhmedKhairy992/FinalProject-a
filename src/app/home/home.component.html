@@ -1,0 +1,42 @@
+  <div *ngIf="productContainer.length>0 else loading"  class="container pt-2">
+  <div class="row gx-0 align-items-stretch ">
+    <div class="col-md-8">
+      <img src="../../assets/img/banner-4.jpeg" class="w-100 img-fluid h-100" alt="">
+    </div>
+    <div class="col-md-4 d-flex flex-column ">
+      <div>
+        <img src="../../assets/img/slider-2.jpeg" class="w-100 img-fluid" alt="">
+      </div>
+      <div>
+        <img src="../../assets/img/slider-image-2.jpeg" class="w-100 img-fluid" alt="">
+      </div>
+    </div>
+  </div>
+  <app-cslider [catArry]="categoryContainer"></app-cslider>
+
+  <div class="row pt-3  ">
+    <div  *ngFor="let product of productContainer" class="col-md-2 product">
+      <div class=" w-100   align-items-center p-2 ">
+        <i class="fa-solid fa-heart  heart"></i>
+        <img [src]="product.imageCover"  class="w-100 img-fluid" [routerLink]="['/productdetails',product._id , product.title]" alt="">
+        <p class="d-none">{{product._id}}</p>
+        <p>{{product.category.name}}</p>
+        <p class="fs-6">{{product.title}}</p>
+        <div class="d-flex justify-content-between">
+          <h5 class="w-75 text-start">{{product.price|currency:'EG'}}</h5>
+        <p class="w-25 text-end d-flex">{{product.ratingsAverage}}
+          <i class="fa-solid fa-star star"></i>
+        </p>
+        </div>
+        <button  class="btn bg-main text-white w-100" (click)="addToCart(product._id)">add card + </button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <ng-template #loading>
+  <div class="container p-5 mt-5 d-flex justify-content-center align-items-center">
+    <h1>loading...</h1>
+    <span class="loader"></span>
+  </div>
+  </ng-template>

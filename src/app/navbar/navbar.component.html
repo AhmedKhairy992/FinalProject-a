@@ -1,0 +1,53 @@
+<nav class="navbar fixed-top   navbar-expand-lg navbar-light bg-light">
+  <div class="container ">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav bg-body-secondary container mb-2 mb-lg-0">
+        <li class="nav-item me-auto ">
+          <a class="nav-link  active" aria-current="page" routerLink="home">
+            <img src="../../assets/img/freshcart-logo.svg" class="w-100 img-fluid" alt="">
+             </a>
+        </li>
+        <li *ngIf="enableNavbar" class="nav-item me-auto ">
+          <a class="nav-link" routerLinkActive="bg-main rounded-pill" routerLink="home">Home</a>
+        </li>
+        <li *ngIf="enableNavbar" class="nav-item me-auto ">
+          <a class="nav-link" routerLinkActive="bg-main rounded-pill" routerLink="cart">cart</a>
+        </li>
+        <li *ngIf="enableNavbar" class="nav-item me-auto pt-2">
+          <i class="fa-brands text-main fa-facebook"></i>
+        </li>
+        <li *ngIf="enableNavbar" class="nav-item me-auto  pt-2">
+          <i class="fa-brands text-main fa-twitter"></i>
+        </li>
+        <li *ngIf="enableNavbar" class="nav-item me-auto  pt-2">
+          <i class="fa-brands text-main fa-instagram"></i>
+        </li>
+        <li *ngIf="enableNavbar" class="nav-item me-auto  pt-2">
+          <a>
+            {{CartNumbers}}
+          <i class="fa-solid text-main fa-cart-plus"></i>
+
+          </a>
+        </li>
+
+        <li class="nav-item me-auto">
+          <a class="nav-link active rounded-pill text-black fs-5" routerLinkActive="bg-main " routerLink="register">Register</a>
+        </li>
+        <li class="nav-item me-auto">
+          <div class="d-flex">
+            <a class="nav-link d-block active rounded-pill text-black fs-5" routerLinkActive="bg-main " routerLink="login">login
+            </a>
+            <span class="fs-5 pt-1 bg-main rounded-4 text-black"> {{logInuserName}}</span>
+          </div>
+        </li>
+        <li *ngIf="enableNavbar" class="nav-item me-auto ">
+          <a class="nav-link cursor-pointer" routerLinkActive="bg-body-secondary rounded-pill"  (click)="logOut()" >LogOut</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
